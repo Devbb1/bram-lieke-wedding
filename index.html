@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bram & Lieke | 22 augustus 2026</title>
+  <meta name="description" content="De trouwwebsite van Bram en Lieke voor hun bruiloft op 22 augustus 2026 in Klooster Bethlehem." />
+  <style>
+    :root {
+      --bg: #f8f5f1;
+      --surface: #ffffff;
+      --surface-soft: #f3eee8;
+      --text: #2f2a26;
+      --muted: #766d66;
+      --line: #e6ddd4;
+      --accent: #b08d57;
+      --accent-dark: #8d6d3f;
+      --max: 1120px;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --shadow: 0 12px 35px rgba(47, 42, 38, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #fbf8f4 0%, #f6f1eb 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 245, 241, 0.88);
+      border-bottom: 1px solid rgba(230, 221, 212, 0.9);
+    }
+
+    .topbar-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 0.9rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-card,
+    .card,
+    .timeline,
+    .gift-box,
+    .contact-box,
+    .footer-box {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 48px;
+      background:
+        radial-gradient(circle at top right, rgba(176, 141, 87, 0.12), transparent 34%),
+        radial-gradient(circle at bottom left, rgba(118, 109, 102, 0.08), transparent 30%),
+        rgba(255, 255, 255, 0.92);
+    }
+
+    .eyebrow,
+    .section-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .amp {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 38rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .button-primary {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .button-primary:hover,
+    .button-primary:focus-visible {
+      background: #1f1b18;
+    }
+
+    .button-secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .hero-card {
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .info-item {
+      padding: 18px;
+      background: var(--surface-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid #ede3d8;
+    }
+
+    .info-item .label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .info-item .value {
+      margin-top: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    section {
+      padding: 18px 0 18px;
+    }
+
+    .section-header {
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro {
+      margin-top: 14px;
+      max-width: 48rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .card {
+      padding: 32px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #f0e6d5;
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-top: 16px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .detail-card {
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(47, 42, 38, 0.04);
+    }
+
+    .detail-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    .detail-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .gift-box,
+    .contact-box,
+    .footer-box {
+      padding: 32px;
+    }
+
+    .gift-amount {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f3ebdd 0%, #f8f4ed 100%);
+      border: 1px solid #eadfce;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .contact-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: var(--surface-soft);
+      border: 1px solid #ede3d8;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .countdown-box {
+      padding: 18px 12px;
+      text-align: center;
+      border-radius: 18px;
+      background: var(--surface-soft);
+      border: 1px solid #ede3d8;
+    }
+
+    .countdown-number {
+      display: block;
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 24px 0 56px;
+    }
+
+    .footer-box {
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-box strong {
+      color: var(--text);
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .split,
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .hero-card,
+      .card,
+      .gift-box,
+      .contact-box,
+      .footer-box {
+        padding: 26px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .nav {
+        gap: 12px 16px;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .info-grid,
+      .countdown {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(var(--max), calc(100% - 20px));
+      }
+
+      .hero-main,
+      .hero-card,
+      .card,
+      .gift-box,
+      .contact-box,
+      .footer-box {
+        padding: 22px;
+        border-radius: 22px;
+      }
+
+      .info-grid,
+      .countdown {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#top">Bram &amp; Lieke</a>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <a href="#verhaal">Ons verhaal</a>
+        <a href="#dresscode">Dresscode</a>
+        <a href="#praktisch">Praktische info</a>
+        <a href="#cadeau">Cadeautip</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <span class="eyebrow">22 augustus 2026 · Klooster Bethlehem</span>
+          <h1>Bram <span class="amp">&amp;</span> Lieke</h1>
+          <p class="lead">
+            Welkom op onze trouwwebsite. Op deze pagina vind je alle belangrijke informatie over onze grote dag,
+            van de sfeer en dresscode tot praktische details en contactgegevens.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#praktisch">Bekijk praktische info</a>
+            <a class="button button-secondary" href="#contact">Contact ceremoniemeesters</a>
+          </div>
+
+          <div class="countdown" aria-label="Aftellen naar de bruiloft">
+            <div class="countdown-box">
+              <span class="countdown-number" id="days">--</span>
+              <span class="countdown-label">Dagen</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="hours">--</span>
+              <span class="countdown-label">Uren</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="minutes">--</span>
+              <span class="countdown-label">Minuten</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="seconds">--</span>
+              <span class="countdown-label">Seconden</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Hoofdinformatie">
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="label">Datum</div>
+              <div class="value">22 augustus 2026</div>
+            </div>
+            <div class="info-item">
+              <div class="label">Locatie</div>
+              <div class="value">Klooster Bethlehem</div>
+            </div>
+            <div class="info-item">
+              <div class="label">Thema</div>
+              <div class="value">Summer Chic</div>
+            </div>
+            <div class="info-item">
+              <div class="label">Website</div>
+              <div class="value">One-page, modern &amp; stijlvol</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="verhaal">
+      <div class="container split">
+        <div class="section-header">
+          <span class="section-label">Ons verhaal</span>
+          <h2>Een korte introductie van ons samen</h2>
+          <p class="section-intro">
+            Hier komt straks jullie persoonlijke verhaal. Voor nu staat hieronder een nette placeholder die later
+            eenvoudig vervangen kan worden door een eigen tekst.
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            Bram en Lieke gaan trouwen.
+          </p>
+          <p>
+            Op deze plek kan later een persoonlijk verhaal komen over hoe jullie elkaar hebben leren kennen, wat jullie
+            typeert als stel en waarom jullie uitkijken naar deze bijzondere dag in Klooster Bethlehem.
+          </p>
+          <p>
+            Denk bijvoorbeeld aan een warme, korte tekst die goed past bij de rest van de uitnodiging en de sfeer van
+            de bruiloft.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="dresscode">
+      <div class="container card">
+        <span class="section-label">Dresscode &amp; thema</span>
+        <h2>Summer Chic</h2>
+        <p class="section-intro">
+          We vieren onze dag graag in een stijlvolle, zomerse sfeer. Denk aan feestelijk, verzorgd en elegant, passend
+          bij een warme zomerbruiloft.
+        </p>
+        <span class="pill">Thema: Summer Chic</span>
+      </div>
+    </section>
+
+    <section id="praktisch">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Praktische informatie</span>
+          <h2>Alles voor de dag op een rij</h2>
+          <p class="section-intro">
+            Hieronder staat ruimte voor de belangrijkste informatie voor jullie gasten. De basis staat al klaar en kan
+            later eenvoudig worden aangevuld met exacte details.
+          </p>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-card">
+            <h3>Locatie</h3>
+            <p>
+              Klooster Bethlehem<br />
+              Hier kan later het volledige adres worden toegevoegd, eventueel met parkeerinformatie of route-uitleg.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Planning</h3>
+            <p>
+              Hier kan later de globale dagindeling komen, bijvoorbeeld ontvangst, ceremonie, diner en feest.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Bereikbaarheid</h3>
+            <p>
+              Voeg hier indien gewenst informatie toe over parkeren, taxi's, openbaar vervoer of overnachtingsopties.
+            </p>
+          </div>
+
+          <div class="detail-card">
+            <h3>Extra informatie</h3>
+            <p>
+              Deze plek is geschikt voor aanvullende details zoals dieetwensen, kinderen, praktische instructies of
+              andere bijzonderheden.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cadeau">
+      <div class="container gift-box">
+        <span class="section-label">Cadeautip</span>
+        <h2>Jullie aanwezigheid is het mooiste cadeau</h2>
+        <p class="section-intro">
+          Willen jullie ons toch graag iets geven, dan zouden wij een bijdrage in geld enorm waarderen. Daarmee kunnen
+          we samen iets moois uitzoeken of sparen voor een bijzondere bestemming of herinnering.
+        </p>
+        <div class="gift-amount">
+          Cadeautip: een bijdrage in geld is van harte welkom.
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-box">
+        <span class="section-label">Contact ceremoniemeesters</span>
+        <h2>Vragen of iets afstemmen?</h2>
+        <p class="section-intro">
+          Voor vragen, verrassingen of praktische afstemming kunnen gasten contact opnemen met de ceremoniemeesters.
+          Vul hieronder later eenvoudig de juiste gegevens in.
+        </p>
+
+        <div class="contact-list">
+          <div class="contact-item">
+            <strong>Ceremoniemeester 1</strong>
+            <div>Naam volgt</div>
+            <div>Telefoonnummer volgt</div>
+            <div>E-mailadres volgt</div>
+          </div>
+
+          <div class="contact-item">
+            <strong>Ceremoniemeester 2</strong>
+            <div>Naam volgt</div>
+            <div>Telefoonnummer volgt</div>
+            <div>E-mailadres volgt</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <p><strong>Bram &amp; Lieke</strong> · 22 augustus 2026 · Klooster Bethlehem</p>
+      <p>Met liefde gemaakt als moderne one-page trouwwebsite.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const targetDate = new Date('2026-08-22T12:00:00');
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      function pad(value) {
+        return String(value).padStart(2, '0');
+      }
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          daysEl.textContent = '00';
+          hoursEl.textContent = '00';
+          minutesEl.textContent = '00';
+          secondsEl.textContent = '00';
+          return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        daysEl.textContent = String(days);
+        hoursEl.textContent = pad(hours);
+        minutesEl.textContent = pad(minutes);
+        secondsEl.textContent = pad(seconds);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+</body>
+</html>
