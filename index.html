@@ -7,32 +7,38 @@
   <meta name="description" content="De trouwwebsite van Bram en Lieke voor hun bruiloft op 22 augustus 2026 in Klooster Bethlehem." />
   <style>
     :root {
-      --bg: #f7f1e8;
-      --bg-soft: #fbf8f4;
-      --surface: #ffffff;
-      --surface-alt: #f4ede2;
-      --text: #2f2924;
-      --muted: #776c61;
-      --line: #e8ddd0;
-      --accent: #b88a4a;
-      --accent-dark: #936a33;
-      --shadow: 0 14px 36px rgba(47, 41, 36, 0.08);
+      --bg: #f8f4ee;
+      --bg-soft: #fcfaf7;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-strong: #ffffff;
+      --surface-alt: #f4ecdf;
+      --text: #2c251f;
+      --muted: #73675c;
+      --line: rgba(180, 150, 111, 0.18);
+      --accent: #b68a57;
+      --accent-dark: #8d6637;
+      --accent-soft: #efe1cf;
+      --shadow: 0 18px 50px rgba(44, 37, 31, 0.10);
       --radius-xl: 30px;
       --radius-lg: 22px;
-      --max: 1140px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.95), transparent 32%),
+        linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       line-height: 1.65;
     }
+
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { display: block; width: 100%; }
 
     .container {
       width: min(var(--max), calc(100% - 28px));
@@ -43,36 +49,37 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(251, 248, 244, 0.9);
-      border-bottom: 1px solid rgba(232, 221, 208, 0.9);
+      background: rgba(252, 250, 247, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(182, 138, 87, 0.10);
     }
 
     .topbar-inner {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
     .brand {
       font-size: 0.92rem;
-      font-weight: 700;
-      letter-spacing: 0.26em;
+      font-weight: 800;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
       gap: 18px;
+      justify-content: flex-end;
     }
 
     .nav a {
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 0.95rem;
+      transition: color .2s ease;
     }
 
     .nav a:hover,
@@ -80,105 +87,208 @@
       color: var(--text);
     }
 
-    .hero {
-      padding: 30px 0 18px;
-    }
-
-    .hero-card,
+    .glass,
     .section-card,
-    .story-card,
-    .day-card,
+    .timeline-card,
     .info-card,
+    .story-card,
     .contact-card,
-    .footer-card {
-      background: rgba(255,255,255,0.92);
+    .footer-card,
+    .hero-panel,
+    .gallery-card {
+      background: var(--surface);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       border-radius: var(--radius-xl);
+      backdrop-filter: blur(12px);
     }
 
-    .hero-card {
-      overflow: hidden;
+    .hero {
+      padding: 26px 0 20px;
     }
 
-    .hero-image {
-      min-height: 360px;
-      background:
-        linear-gradient(rgba(45, 35, 23, 0.22), rgba(45, 35, 23, 0.28)),
-        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 26%),
-        linear-gradient(135deg, #d7c1a0 0%, #b88a4a 44%, #7c6645 100%);
+    .hero-grid {
       display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 34px 20px;
+      grid-template-columns: 1.2fr 0.78fr;
+      gap: 18px;
     }
 
-    .hero-inner {
-      max-width: 760px;
+    .hero-main {
+      min-height: 640px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(35,27,20,0.10), rgba(35,27,20,0.42)),
+        url('https://kloosterbethlehem.nl/wp-content/uploads/2025/06/20240613_Hutten_KloosterBethlehem_LawPepper-0185-Original-2.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: end;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.26);
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.50) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
       color: #fffaf4;
     }
 
     .eyebrow,
     .section-label {
       display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.24em;
+      font-size: 0.79rem;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
+      letter-spacing: 0.24em;
+      font-weight: 800;
     }
 
     .hero .eyebrow {
-      color: rgba(255, 250, 244, 0.82);
-      margin-bottom: 16px;
+      color: rgba(255,250,244,0.82);
+      margin-bottom: 14px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      line-height: 0.96;
+      font-size: clamp(3rem, 7vw, 5.9rem);
+      line-height: 0.95;
       letter-spacing: -0.05em;
     }
 
     .hero-subtitle {
       margin: 16px 0 0;
-      font-size: 1.2rem;
-      color: rgba(255, 250, 244, 0.9);
+      font-size: 1.12rem;
+      color: rgba(255,250,244,0.92);
+      max-width: 40rem;
     }
 
-    .countdown-wrap {
-      padding: 28px;
-      background: var(--surface);
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: rgba(255,255,255,0.95);
+      color: var(--text);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.10);
+      color: #fffaf4;
+      border-color: rgba(255,255,255,0.34);
+    }
+
+    .button-gold {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .button-soft {
+      background: var(--surface-alt);
+      color: var(--accent-dark);
+      border-color: rgba(182, 138, 87, 0.10);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-panel {
+      padding: 24px;
+    }
+
+    .hero-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.12rem;
+    }
+
+    .info-mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: var(--surface-alt);
+      border: 1px solid rgba(182, 138, 87, 0.08);
+    }
+
+    .mini-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .mini-value {
+      margin-top: 8px;
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.4;
     }
 
     .countdown {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 10px;
+      margin-top: 12px;
     }
 
     .countdown-box {
-      background: var(--surface-alt);
-      border: 1px solid #ecdfce;
-      border-radius: 20px;
+      padding: 16px 10px;
       text-align: center;
-      padding: 20px 12px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff 0%, #f7f0e7 100%);
+      border: 1px solid rgba(182, 138, 87, 0.10);
     }
 
     .countdown-number {
       display: block;
-      font-size: 2rem;
-      font-weight: 800;
+      font-size: 1.65rem;
+      font-weight: 900;
       line-height: 1;
+      color: var(--accent-dark);
     }
 
     .countdown-label {
       display: block;
       margin-top: 8px;
-      font-size: 0.8rem;
+      font-size: 0.74rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       color: var(--muted);
     }
 
@@ -191,9 +301,14 @@
       margin-bottom: 22px;
     }
 
+    .section-label {
+      color: var(--accent-dark);
+      margin-bottom: 12px;
+    }
+
     h2 {
       margin: 0;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: 1.05;
       letter-spacing: -0.04em;
     }
@@ -202,107 +317,135 @@
       margin: 14px auto 0;
       max-width: 760px;
       color: var(--muted);
-      font-size: 1.02rem;
+      font-size: 1.03rem;
     }
 
-    .story-grid,
-    .day-grid,
-    .info-grid,
-    .contact-grid {
+    .story-layout {
       display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
       gap: 18px;
+      align-items: stretch;
+    }
+
+    .story-highlight {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(34,25,18,0.06), rgba(34,25,18,0.35)), url('https://kloosterbethlehem.nl/wp-content/uploads/2024/07/0002-1140x1050.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: end;
+      padding: 28px;
+      color: #fffaf4;
+      box-shadow: var(--shadow);
+    }
+
+    .story-highlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.02) 20%, rgba(0,0,0,0.52) 100%);
+    }
+
+    .story-highlight-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+    }
+
+    .story-highlight h3 {
+      margin: 10px 0 10px;
+      font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
     }
 
     .story-grid {
-      grid-template-columns: repeat(2, 1fr);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
     .story-card,
-    .day-card,
+    .timeline-card,
     .info-card,
     .contact-card,
-    .footer-card,
-    .section-card {
-      padding: 26px;
+    .gallery-card,
+    .section-card,
+    .footer-card {
+      padding: 24px;
     }
 
-    .story-image {
-      height: 180px;
-      border-radius: 18px;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg, #e8dccb 0%, #caa97a 100%);
-      display: grid;
-      place-items: center;
-      color: rgba(47, 41, 36, 0.66);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .story-number {
+    .story-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: #f2e6d5;
+      background: var(--accent-soft);
       color: var(--accent-dark);
-      font-weight: 800;
-      margin-bottom: 12px;
+      font-weight: 900;
+      margin-bottom: 14px;
     }
 
     h3 {
       margin: 0 0 10px;
-      font-size: 1.18rem;
+      font-size: 1.16rem;
     }
 
-    p {
-      margin: 0;
-    }
+    p { margin: 0; }
 
     .story-card p,
-    .day-card p,
+    .timeline-card p,
     .info-card p,
     .contact-card p,
-    .section-card p {
+    .footer-card p,
+    .section-card p,
+    .story-highlight p,
+    .hero-panel p,
+    .gallery-caption {
       color: var(--muted);
     }
 
-    .day-grid {
-      grid-template-columns: repeat(3, 1fr);
-      margin-bottom: 18px;
+    .story-highlight p,
+    .hero-content p {
+      color: rgba(255,250,244,0.92);
     }
 
-    .day-location {
-      color: var(--accent-dark);
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .route-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 16px;
-      font-weight: 700;
-      color: var(--accent-dark);
-    }
-
-    .timeline {
+    .day-layout {
       display: grid;
-      gap: 14px;
-      margin-top: 10px;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+    }
+
+    .venue-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .venue-image {
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .venue-body {
+      padding: 24px;
+    }
+
+    .venue-kicker {
+      color: var(--accent-dark);
+      font-weight: 800;
+      margin-bottom: 10px;
     }
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 96px 1fr;
+      grid-template-columns: 92px 1fr;
       gap: 18px;
       align-items: start;
       padding: 18px 0;
-      border-top: 1px solid var(--line);
+      border-top: 1px solid rgba(182, 138, 87, 0.12);
     }
 
     .timeline-item:first-child {
@@ -311,13 +454,15 @@
     }
 
     .time {
-      font-weight: 800;
       color: var(--accent-dark);
       font-size: 1rem;
+      font-weight: 900;
     }
 
     .info-grid {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
     .tag {
@@ -325,55 +470,120 @@
       margin-top: 16px;
       padding: 10px 16px;
       border-radius: 999px;
-      background: #f2e7d7;
+      background: var(--accent-soft);
       color: var(--accent-dark);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.94rem;
     }
 
     .gift-highlight {
       margin-top: 16px;
-      padding: 18px 20px;
+      padding: 16px 18px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #f5ebdd 0%, #fbf7f0 100%);
-      border: 1px solid #eadcc8;
+      background: linear-gradient(180deg, #fff 0%, #f6efe5 100%);
+      border: 1px solid rgba(182, 138, 87, 0.12);
       color: var(--accent-dark);
-      font-weight: 700;
+      font-weight: 800;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+    }
+
+    .gallery-main,
+    .gallery-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .gallery-main .gallery-card {
+      padding: 0;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .gallery-main img,
+    .gallery-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
+    }
+
+    .gallery-side {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-side .gallery-card {
+      padding: 0;
+      overflow: hidden;
     }
 
     .contact-grid {
-      grid-template-columns: repeat(2, 1fr);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
     .contact-label {
+      display: inline-block;
+      margin-bottom: 12px;
       color: var(--accent-dark);
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .phone-reveal {
+      margin-top: 14px;
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: #f7f1e7;
+      color: var(--accent-dark);
+      font-weight: 800;
+      border: 1px solid rgba(182, 138, 87, 0.12);
     }
 
     footer {
-      padding: 0 0 42px;
+      padding: 4px 0 42px;
     }
 
     .footer-card {
       text-align: center;
-      color: var(--muted);
     }
 
     .footer-card strong {
       color: var(--text);
     }
 
-    @media (max-width: 920px) {
-      .story-grid,
-      .day-grid,
+    @media (max-width: 980px) {
+      .hero-grid,
+      .story-layout,
+      .day-layout,
+      .gallery-grid,
       .info-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
+
+      .gallery-side {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-main {
+        min-height: 520px;
+      }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -385,8 +595,11 @@
         gap: 12px 14px;
       }
 
-      .countdown {
-        grid-template-columns: repeat(2, 1fr);
+      .info-mini-grid,
+      .countdown,
+      .story-grid,
+      .gallery-side {
+        grid-template-columns: 1fr 1fr;
       }
 
       .timeline-item {
@@ -394,8 +607,46 @@
         gap: 8px;
       }
 
-      .hero-image {
-        min-height: 300px;
+      .hero-main,
+      .story-highlight {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        width: min(var(--max), calc(100% - 18px));
+      }
+
+      .hero-main {
+        min-height: 440px;
+      }
+
+      .hero-panel,
+      .story-card,
+      .timeline-card,
+      .info-card,
+      .contact-card,
+      .gallery-card,
+      .section-card,
+      .footer-card {
+        padding: 20px;
+        border-radius: 24px;
+      }
+
+      .countdown,
+      .story-grid,
+      .info-mini-grid,
+      .gallery-side {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      h1 {
+        font-size: 2.9rem;
+      }
+
+      h2 {
+        font-size: 2.1rem;
       }
     }
   </style>
@@ -406,42 +657,75 @@
       <a class="brand" href="#top">Bram &amp; Lieke</a>
       <nav class="nav" aria-label="Hoofdmenu">
         <a href="#verhaal">Ons verhaal</a>
-        <a href="#grote-dag">De grote dag</a>
+        <a href="#dag">De dag</a>
         <a href="#praktisch">Praktische info</a>
-        <a href="#contact">Vragen?</a>
+        <a href="#sfeer">Sfeer</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-card">
-        <div class="hero-image">
-          <div class="hero-inner">
-            <span class="eyebrow">Wij gaan trouwen</span>
+      <div class="container hero-grid">
+        <div class="hero-main glass">
+          <div class="hero-content">
+            <span class="eyebrow">22 augustus 2026 · Klooster Bethlehem</span>
             <h1>Bram &amp; Lieke</h1>
-            <p class="hero-subtitle">22 augustus 2026 · Klooster Bethlehem</p>
+            <p class="hero-subtitle">
+              Met veel liefde kijken wij uit naar een prachtige dag op deze bijzondere plek. We vinden het heel bijzonder om dit samen met jullie te mogen vieren.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#dag">Bekijk de dag</a>
+              <a class="button button-secondary" href="#contact">Contact ceremoniemeester</a>
+            </div>
           </div>
         </div>
-        <div class="countdown-wrap">
-          <div class="countdown" aria-label="Aftellen naar de bruiloft">
-            <div class="countdown-box">
-              <span class="countdown-number" id="days">--</span>
-              <span class="countdown-label">Dagen</span>
+
+        <div class="hero-side">
+          <aside class="hero-panel">
+            <h3>De belangrijkste informatie</h3>
+            <div class="info-mini-grid">
+              <div class="mini-card">
+                <div class="mini-label">Datum</div>
+                <div class="mini-value">22 augustus 2026</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-label">Locatie</div>
+                <div class="mini-value">Klooster Bethlehem</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-label">Thema</div>
+                <div class="mini-value">Summer Chic</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-label">Parkeren</div>
+                <div class="mini-value">Voldoende plek aanwezig</div>
+              </div>
             </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="hours">--</span>
-              <span class="countdown-label">Uren</span>
+          </aside>
+
+          <aside class="hero-panel">
+            <h3>Aftellen naar onze dag</h3>
+            <div class="countdown" aria-label="Aftellen naar de bruiloft">
+              <div class="countdown-box">
+                <span class="countdown-number" id="days">--</span>
+                <span class="countdown-label">Dagen</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="hours">--</span>
+                <span class="countdown-label">Uren</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="minutes">--</span>
+                <span class="countdown-label">Minuten</span>
+              </div>
+              <div class="countdown-box">
+                <span class="countdown-number" id="seconds">--</span>
+                <span class="countdown-label">Seconden</span>
+              </div>
             </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="minutes">--</span>
-              <span class="countdown-label">Minuten</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="seconds">--</span>
-              <span class="countdown-label">Seconden</span>
-            </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -450,106 +734,113 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Ons verhaal</span>
-          <h2>Een paar momenten richting 22 augustus 2026</h2>
+          <h2>Van Heerlen naar dit bijzondere moment</h2>
           <p class="section-intro">
-            Deze opzet is bewust meer opgebouwd zoals het voorbeeld: met losse verhaalkaarten, ruimte voor beelden en
-            korte stukken tekst. De inhoud hieronder is nog als placeholder opgezet en kan later eenvoudig persoonlijk worden gemaakt.
+            Een verhaal van liefde, groei en samen steeds meer thuiskomen bij elkaar.
           </p>
         </div>
 
-        <div class="story-grid">
-          <article class="story-card">
-            <div class="story-image">Foto 1</div>
-            <span class="story-number">1</span>
-            <h3>Het begin</h3>
-            <p>Hier kan later een korte eerste herinnering komen over hoe Bram en Lieke elkaar leerden kennen.</p>
-          </article>
+        <div class="story-layout">
+          <div class="story-highlight">
+            <div class="story-highlight-inner">
+              <span class="eyebrow">Al 10 jaar samen onderweg</span>
+              <h3>Ons avontuur begon in Heerlen</h3>
+              <p>
+                Wat begon met een ontmoeting in Heerlen groeide uit tot een leven vol bijzondere herinneringen, gedeelde dromen en een prachtig gezin.
+              </p>
+            </div>
+          </div>
 
-          <article class="story-card">
-            <div class="story-image">Foto 2</div>
-            <span class="story-number">2</span>
-            <h3>Samen op weg</h3>
-            <p>Deze kaart is geschikt voor een tweede moment: een reis, een bijzondere periode of iets wat jullie typeert als stel.</p>
-          </article>
+          <div class="story-grid">
+            <article class="story-card">
+              <div class="story-icon">1</div>
+              <h3>De eerste ontmoeting</h3>
+              <p>
+                Ons avontuur samen begon in Heerlen, waar we elkaar tien jaar geleden ontmoetten. Vanaf dat moment ontstond er iets bijzonders dat steeds verder groeide.
+              </p>
+            </article>
 
-          <article class="story-card">
-            <div class="story-image">Foto 3</div>
-            <span class="story-number">3</span>
-            <h3>Ons leven samen</h3>
-            <p>Hier kan een tekst komen over jullie leven samen, jullie gezin, thuis of alles wat deze fase bijzonder maakt.</p>
-          </article>
+            <article class="story-card">
+              <div class="story-icon">2</div>
+              <h3>Veel mooie herinneringen</h3>
+              <p>
+                In de jaren daarna beleefden we samen talloze mooie momenten: grote stappen, kleine geluksmomenten en alles wat het leven juist zo waardevol maakt.
+              </p>
+            </article>
 
-          <article class="story-card">
-            <div class="story-image">Foto 4</div>
-            <span class="story-number">4</span>
-            <h3>Op naar de grote dag</h3>
-            <p>Deze laatste kaart kan straks mooi eindigen met de stap naar jullie bruiloft en de uitnodiging aan jullie gasten.</p>
-          </article>
+            <article class="story-card">
+              <div class="story-icon">3</div>
+              <h3>Ons gezin</h3>
+              <p>
+                We zijn enorm dankbaar dat we inmiddels samen drie prachtige kinderen hebben. Zij maken ons leven rijker, voller en nog mooier dan we ooit hadden kunnen bedenken.
+              </p>
+            </article>
+
+            <article class="story-card">
+              <div class="story-icon">4</div>
+              <h3>Samen vieren</h3>
+              <p>
+                Op 22 augustus 2026 willen we onze liefde graag samen met jullie vieren. Dat jullie erbij zijn, maakt deze dag voor ons extra bijzonder.
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="grote-dag">
+    <section id="dag">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">De grote dag</span>
-          <h2>Locatie en planning</h2>
+          <span class="section-label">De dag</span>
+          <h2>Een bijzondere plek voor een bijzondere dag</h2>
         </div>
 
-        <div class="day-grid">
-          <article class="day-card">
-            <div class="day-location">Ceremonie</div>
-            <h3>Klooster Bethlehem</h3>
-            <p>Hier kan later het volledige adres komen, eventueel met een korte toelichting voor gasten.</p>
-            <a class="route-link" href="#">Route</a>
+        <div class="day-layout">
+          <article class="section-card venue-card">
+            <img class="venue-image" src="https://kloosterbethlehem.nl/wp-content/uploads/2024/07/0002-1140x1050.jpg" alt="Klooster Bethlehem" />
+            <div class="venue-body">
+              <div class="venue-kicker">Locatie</div>
+              <h3>Klooster Bethlehem</h3>
+              <p>
+                Een sfeervolle, karaktervolle locatie waar historie en warmte prachtig samenkomen. Precies de plek waar wij deze dag graag met jullie willen beleven.
+              </p>
+              <div class="contact-actions">
+                <a class="button button-gold" href="https://maps.app.goo.gl/duNq6eQhdRnQFeNu6" target="_blank" rel="noopener noreferrer">Open in Maps</a>
+              </div>
+            </div>
           </article>
 
-          <article class="day-card">
-            <div class="day-location">Diner</div>
-            <h3>Klooster Bethlehem</h3>
-            <p>Als ceremonie en diner op dezelfde plek zijn, kan deze kaart ook worden gebruikt voor borrel of feest.</p>
-            <a class="route-link" href="#">Route</a>
-          </article>
-
-          <article class="day-card">
-            <div class="day-location">Feest</div>
-            <h3>Klooster Bethlehem</h3>
-            <p>Ook deze kaart kunnen we later aanpassen zodra de indeling van de dag definitief is.</p>
-            <a class="route-link" href="#">Route</a>
-          </article>
-        </div>
-
-        <div class="section-card">
-          <div class="timeline">
+          <article class="timeline-card">
+            <h3>Globale planning</h3>
             <div class="timeline-item">
               <div class="time">14:00</div>
               <div>
                 <h3>Ontvangst</h3>
-                <p>Placeholder voor het moment waarop gasten welkom zijn en de dag begint.</p>
+                <p>We ontvangen jullie graag op de locatie voor een feestelijke start van de dag.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="time">15:00</div>
               <div>
                 <h3>Ceremonie</h3>
-                <p>Hier kan later de omschrijving van de ceremonie komen, passend bij de setting van Klooster Bethlehem.</p>
+                <p>Een bijzonder moment waarop we elkaar het ja-woord geven in een warme en intieme setting.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="time">17:00</div>
               <div>
-                <h3>Borrel &amp; diner</h3>
-                <p>Ruimte voor een korte uitleg over het programma, het diner of andere onderdelen van de middag en avond.</p>
+                <h3>Toost &amp; diner</h3>
+                <p>Tijd om samen te proosten, te genieten en mooie herinneringen te maken met familie en vrienden.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="time">20:30</div>
               <div>
                 <h3>Feest</h3>
-                <p>Een plek voor de afsluiting van de dag met muziek, borrel en dansvloer.</p>
+                <p>We sluiten de dag af met muziek, gezelligheid en een goed feest om nog lang op terug te kijken.</p>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -558,31 +849,73 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Praktische info</span>
-          <h2>Alles voor onze gasten op een rij</h2>
+          <h2>Goed om te weten</h2>
         </div>
 
         <div class="info-grid">
           <article class="info-card">
             <h3>Dresscode</h3>
-            <p>We vieren onze dag in een stijlvolle, zomerse sfeer.</p>
+            <p>
+              We kiezen voor een stijlvolle en zomerse sfeer. Denk aan verzorgd, elegant en feestelijk, passend bij een warme zomerbruiloft.
+            </p>
             <span class="tag">Summer Chic</span>
           </article>
 
           <article class="info-card">
-            <h3>Cadeaus</h3>
-            <p>Jullie aanwezigheid is het mooiste cadeau. Willen jullie ons toch iets geven, dan waarderen wij een bijdrage in geld enorm.</p>
-            <div class="gift-highlight">Cadeautip: een bijdrage in geld is van harte welkom.</div>
+            <h3>Cadeautip</h3>
+            <p>
+              Jullie aanwezigheid is voor ons het mooiste cadeau. Willen jullie ons toch graag iets geven, dan waarderen wij een bijdrage in geld enorm.
+            </p>
+            <div class="gift-highlight">Een bijdrage in geld is van harte welkom.</div>
           </article>
 
           <article class="info-card">
-            <h3>Overnachten &amp; parkeren</h3>
-            <p>Hier kan later informatie komen over parkeren, hotels in de buurt of ander vervoer voor gasten.</p>
+            <h3>Parkeren</h3>
+            <p>
+              Bij de locatie is voldoende parkeergelegenheid aanwezig, zodat jullie gemakkelijk met de auto kunnen komen.
+            </p>
           </article>
 
           <article class="info-card">
-            <h3>Extra informatie</h3>
-            <p>Deze kaart kan gebruikt worden voor dieetwensen, kinderen, tijden, praktische instructies of andere bijzonderheden.</p>
+            <h3>Bereikbaarheid</h3>
+            <p>
+              Klooster Bethlehem is eenvoudig te vinden. Via de Maps-link op deze pagina navigeer je direct naar de juiste locatie.
+            </p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sfeer">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Sfeer</span>
+          <h2>Een indruk van de locatie en de dag</h2>
+          <p class="section-intro">
+            Een paar beelden die alvast iets laten zien van de sfeer, het karakter en de warmte van deze bijzondere plek.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-main">
+            <article class="gallery-card">
+              <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/06/20240613_Hutten_KloosterBethlehem_LawPepper-0185-Original-2.jpeg" alt="Luchtfoto van Klooster Bethlehem" />
+            </article>
+          </div>
+          <div class="gallery-side">
+            <article class="gallery-card">
+              <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/03/DSCF6965-Original-760x700.jpeg" alt="Sfeervolle tafelstyling" />
+            </article>
+            <article class="gallery-card">
+              <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/03/8-760x700.jpg" alt="Ceremonie in de kapel" />
+            </article>
+            <article class="gallery-card">
+              <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/04/DSCF7186-Original-760x700.jpeg" alt="Sfeervolle buitenlocatie bij het klooster" />
+            </article>
+            <article class="gallery-card">
+              <img src="https://kloosterbethlehem.nl/wp-content/uploads/2024/07/Fotografie-Jeroen-Savelkous.jpg" alt="Bruiloftssfeer buiten bij Klooster Bethlehem" />
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -590,24 +923,35 @@
     <section id="contact">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Vragen?</span>
-          <h2>Neem contact op met onze ceremoniemeesters</h2>
-          <p class="section-intro">Voor vragen, verrassingen of praktische afstemming kunnen gasten rechtstreeks contact opnemen.</p>
+          <span class="section-label">Contact</span>
+          <h2>Vragen of iets afstemmen?</h2>
+          <p class="section-intro">
+            Voor vragen, verrassingen of praktische afstemming kun je contact opnemen met onze ceremoniemeester.
+          </p>
         </div>
 
         <div class="contact-grid">
           <article class="contact-card">
-            <div class="contact-label">Ceremoniemeester 1</div>
-            <h3>Naam volgt</h3>
-            <p>Telefoonnummer volgt</p>
-            <p>E-mailadres volgt</p>
+            <span class="contact-label">Ceremoniemeester</span>
+            <h3>Tom A.</h3>
+            <p>
+              Neem gerust contact op met Tom voor vragen rondom de dag, verrassingen of praktische afstemming.
+            </p>
+            <div class="contact-actions">
+              <button class="button button-soft" type="button" id="phoneToggle">Toon telefoonnummer</button>
+            </div>
+            <div class="phone-reveal" id="phoneReveal" hidden>Telefoonnummer volgt</div>
           </article>
 
           <article class="contact-card">
-            <div class="contact-label">Ceremoniemeester 2</div>
-            <h3>Naam volgt</h3>
-            <p>Telefoonnummer volgt</p>
-            <p>E-mailadres volgt</p>
+            <span class="contact-label">Locatie</span>
+            <h3>Klooster Bethlehem</h3>
+            <p>
+              Voor de route naar de locatie kun je direct gebruikmaken van de Maps-link hieronder.
+            </p>
+            <div class="contact-actions">
+              <a class="button button-gold" href="https://maps.app.goo.gl/duNq6eQhdRnQFeNu6" target="_blank" rel="noopener noreferrer">Open route</a>
+            </div>
           </article>
         </div>
       </div>
@@ -617,7 +961,7 @@
   <footer>
     <div class="container footer-card">
       <p><strong>Bram &amp; Lieke</strong> · 22 augustus 2026 · Klooster Bethlehem</p>
-      <p>Met liefde gemaakt voor onze speciale dag.</p>
+      <p>We kijken ernaar uit om deze dag samen met jullie te vieren.</p>
     </div>
   </footer>
 
@@ -628,6 +972,8 @@
       const hoursEl = document.getElementById('hours');
       const minutesEl = document.getElementById('minutes');
       const secondsEl = document.getElementById('seconds');
+      const phoneToggle = document.getElementById('phoneToggle');
+      const phoneReveal = document.getElementById('phoneReveal');
 
       function pad(value) {
         return String(value).padStart(2, '0');
@@ -655,6 +1001,19 @@
         hoursEl.textContent = pad(hours);
         minutesEl.textContent = pad(minutes);
         secondsEl.textContent = pad(seconds);
+      }
+
+      if (phoneToggle && phoneReveal) {
+        phoneToggle.addEventListener('click', function () {
+          const isHidden = phoneReveal.hasAttribute('hidden');
+          if (isHidden) {
+            phoneReveal.removeAttribute('hidden');
+            phoneToggle.textContent = 'Verberg telefoonnummer';
+          } else {
+            phoneReveal.setAttribute('hidden', 'hidden');
+            phoneToggle.textContent = 'Toon telefoonnummer';
+          }
+        });
       }
 
       updateCountdown();
