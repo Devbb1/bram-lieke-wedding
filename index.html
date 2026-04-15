@@ -7,44 +7,35 @@
   <meta name="description" content="De trouwwebsite van Bram en Lieke voor hun bruiloft op 22 augustus 2026 in Klooster Bethlehem." />
   <style>
     :root {
-      --bg: #f8f5f1;
+      --bg: #f7f1e8;
+      --bg-soft: #fbf8f4;
       --surface: #ffffff;
-      --surface-soft: #f3eee8;
-      --text: #2f2a26;
-      --muted: #766d66;
-      --line: #e6ddd4;
-      --accent: #b08d57;
-      --accent-dark: #8d6d3f;
-      --max: 1120px;
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --shadow: 0 12px 35px rgba(47, 42, 38, 0.08);
+      --surface-alt: #f4ede2;
+      --text: #2f2924;
+      --muted: #776c61;
+      --line: #e8ddd0;
+      --accent: #b88a4a;
+      --accent-dark: #936a33;
+      --shadow: 0 14px 36px rgba(47, 41, 36, 0.08);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --max: 1140px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #fbf8f4 0%, #f6f1eb 100%);
+      background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 28px));
       margin: 0 auto;
     }
 
@@ -53,12 +44,12 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(10px);
-      background: rgba(248, 245, 241, 0.88);
-      border-bottom: 1px solid rgba(230, 221, 212, 0.9);
+      background: rgba(251, 248, 244, 0.9);
+      border-bottom: 1px solid rgba(232, 221, 208, 0.9);
     }
 
     .topbar-inner {
-      min-height: 76px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -66,17 +57,17 @@
     }
 
     .brand {
-      font-size: 0.9rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+      font-size: 0.92rem;
       font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
       justify-content: flex-end;
+      gap: 18px;
     }
 
     .nav a {
@@ -90,265 +81,94 @@
     }
 
     .hero {
-      padding: 72px 0 56px;
+      padding: 30px 0 18px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.9fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .hero-main,
     .hero-card,
-    .card,
-    .timeline,
-    .gift-box,
-    .contact-box,
-    .footer-box {
-      background: rgba(255, 255, 255, 0.9);
+    .section-card,
+    .story-card,
+    .day-card,
+    .info-card,
+    .contact-card,
+    .footer-card {
+      background: rgba(255,255,255,0.92);
       border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
     }
 
-    .hero-main {
-      padding: 48px;
+    .hero-card {
+      overflow: hidden;
+    }
+
+    .hero-image {
+      min-height: 360px;
       background:
-        radial-gradient(circle at top right, rgba(176, 141, 87, 0.12), transparent 34%),
-        radial-gradient(circle at bottom left, rgba(118, 109, 102, 0.08), transparent 30%),
-        rgba(255, 255, 255, 0.92);
+        linear-gradient(rgba(45, 35, 23, 0.22), rgba(45, 35, 23, 0.28)),
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 26%),
+        linear-gradient(135deg, #d7c1a0 0%, #b88a4a 44%, #7c6645 100%);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      color: #fffaf4;
     }
 
     .eyebrow,
     .section-label {
       display: inline-block;
       font-size: 0.8rem;
+      font-weight: 700;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--muted);
-      font-weight: 700;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
+    }
+
+    .hero .eyebrow {
+      color: rgba(255, 250, 244, 0.82);
+      margin-bottom: 16px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
     }
 
-    .amp {
-      color: var(--accent);
-      font-weight: 500;
+    .hero-subtitle {
+      margin: 16px 0 0;
+      font-size: 1.2rem;
+      color: rgba(255, 250, 244, 0.9);
     }
 
-    .lead {
-      margin: 24px 0 0;
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 38rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .button-primary {
-      background: var(--text);
-      color: #fff;
-    }
-
-    .button-primary:hover,
-    .button-primary:focus-visible {
-      background: #1f1b18;
-    }
-
-    .button-secondary {
-      background: transparent;
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .button-secondary:hover,
-    .button-secondary:focus-visible {
-      border-color: var(--accent);
-      color: var(--accent-dark);
-    }
-
-    .hero-card {
+    .countdown-wrap {
       padding: 28px;
-      display: grid;
-      gap: 16px;
-      align-content: start;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .info-item {
-      padding: 18px;
-      background: var(--surface-soft);
-      border-radius: var(--radius-lg);
-      border: 1px solid #ede3d8;
-    }
-
-    .info-item .label {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .info-item .value {
-      margin-top: 10px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    section {
-      padding: 18px 0 18px;
-    }
-
-    .section-header {
-      margin-bottom: 22px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    .section-intro {
-      margin-top: 14px;
-      max-width: 48rem;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .card {
-      padding: 32px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: #f0e6d5;
-      color: var(--accent-dark);
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-top: 16px;
-    }
-
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .detail-card {
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      background: rgba(255,255,255,0.94);
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 24px rgba(47, 42, 38, 0.04);
-    }
-
-    .detail-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.1rem;
-    }
-
-    .detail-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .gift-box,
-    .contact-box,
-    .footer-box {
-      padding: 32px;
-    }
-
-    .gift-amount {
-      margin-top: 18px;
-      padding: 18px 20px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #f3ebdd 0%, #f8f4ed 100%);
-      border: 1px solid #eadfce;
-      color: var(--accent-dark);
-      font-weight: 700;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .contact-item {
-      padding: 18px 20px;
-      border-radius: 18px;
-      background: var(--surface-soft);
-      border: 1px solid #ede3d8;
-    }
-
-    .contact-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1rem;
+      background: var(--surface);
     }
 
     .countdown {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 26px;
+      gap: 14px;
     }
 
     .countdown-box {
-      padding: 18px 12px;
+      background: var(--surface-alt);
+      border: 1px solid #ecdfce;
+      border-radius: 20px;
       text-align: center;
-      border-radius: 18px;
-      background: var(--surface-soft);
-      border: 1px solid #ede3d8;
+      padding: 20px 12px;
     }
 
     .countdown-number {
       display: block;
-      font-size: 1.9rem;
+      font-size: 2rem;
       font-weight: 800;
       line-height: 1;
     }
@@ -356,39 +176,200 @@
     .countdown-label {
       display: block;
       margin-top: 8px;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
+      font-size: 0.8rem;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--muted);
     }
 
-    footer {
-      padding: 24px 0 56px;
+    section {
+      padding: 22px 0;
     }
 
-    .footer-box {
+    .section-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-intro {
+      margin: 14px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .story-grid,
+    .day-grid,
+    .info-grid,
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .story-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .story-card,
+    .day-card,
+    .info-card,
+    .contact-card,
+    .footer-card,
+    .section-card {
+      padding: 26px;
+    }
+
+    .story-image {
+      height: 180px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #e8dccb 0%, #caa97a 100%);
+      display: grid;
+      place-items: center;
+      color: rgba(47, 41, 36, 0.66);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .story-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #f2e6d5;
+      color: var(--accent-dark);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .story-card p,
+    .day-card p,
+    .info-card p,
+    .contact-card p,
+    .section-card p {
+      color: var(--muted);
+    }
+
+    .day-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-bottom: 18px;
+    }
+
+    .day-location {
+      color: var(--accent-dark);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .route-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .time {
+      font-weight: 800;
+      color: var(--accent-dark);
+      font-size: 1rem;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #f2e7d7;
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .gift-highlight {
+      margin-top: 16px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f5ebdd 0%, #fbf7f0 100%);
+      border: 1px solid #eadcc8;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .contact-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-label {
+      color: var(--accent-dark);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      padding: 0 0 42px;
+    }
+
+    .footer-card {
       text-align: center;
       color: var(--muted);
     }
 
-    .footer-box strong {
+    .footer-card strong {
       color: var(--text);
     }
 
     @media (max-width: 920px) {
-      .hero-grid,
-      .split,
-      .details-grid {
+      .story-grid,
+      .day-grid,
+      .info-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .hero-main,
-      .hero-card,
-      .card,
-      .gift-box,
-      .contact-box,
-      .footer-box {
-        padding: 26px;
       }
     }
 
@@ -401,41 +382,20 @@
       }
 
       .nav {
-        gap: 12px 16px;
+        gap: 12px 14px;
       }
 
-      .hero {
-        padding-top: 32px;
-      }
-
-      .info-grid,
       .countdown {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
 
-    @media (max-width: 480px) {
-      .container {
-        width: min(var(--max), calc(100% - 20px));
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
       }
 
-      .hero-main,
-      .hero-card,
-      .card,
-      .gift-box,
-      .contact-box,
-      .footer-box {
-        padding: 22px;
-        border-radius: 22px;
-      }
-
-      .info-grid,
-      .countdown {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      h1 {
-        font-size: 2.8rem;
+      .hero-image {
+        min-height: 300px;
       }
     }
   </style>
@@ -446,30 +406,24 @@
       <a class="brand" href="#top">Bram &amp; Lieke</a>
       <nav class="nav" aria-label="Hoofdmenu">
         <a href="#verhaal">Ons verhaal</a>
-        <a href="#dresscode">Dresscode</a>
+        <a href="#grote-dag">De grote dag</a>
         <a href="#praktisch">Praktische info</a>
-        <a href="#cadeau">Cadeautip</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact">Vragen?</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-main">
-          <span class="eyebrow">22 augustus 2026 · Klooster Bethlehem</span>
-          <h1>Bram <span class="amp">&amp;</span> Lieke</h1>
-          <p class="lead">
-            Welkom op onze trouwwebsite. Op deze pagina vind je alle belangrijke informatie over onze grote dag,
-            van de sfeer en dresscode tot praktische details en contactgegevens.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="#praktisch">Bekijk praktische info</a>
-            <a class="button button-secondary" href="#contact">Contact ceremoniemeesters</a>
+      <div class="container hero-card">
+        <div class="hero-image">
+          <div class="hero-inner">
+            <span class="eyebrow">Wij gaan trouwen</span>
+            <h1>Bram &amp; Lieke</h1>
+            <p class="hero-subtitle">22 augustus 2026 · Klooster Bethlehem</p>
           </div>
-
+        </div>
+        <div class="countdown-wrap">
           <div class="countdown" aria-label="Aftellen naar de bruiloft">
             <div class="countdown-box">
               <span class="countdown-number" id="days">--</span>
@@ -489,159 +443,181 @@
             </div>
           </div>
         </div>
-
-        <aside class="hero-card" aria-label="Hoofdinformatie">
-          <div class="info-grid">
-            <div class="info-item">
-              <div class="label">Datum</div>
-              <div class="value">22 augustus 2026</div>
-            </div>
-            <div class="info-item">
-              <div class="label">Locatie</div>
-              <div class="value">Klooster Bethlehem</div>
-            </div>
-            <div class="info-item">
-              <div class="label">Thema</div>
-              <div class="value">Summer Chic</div>
-            </div>
-            <div class="info-item">
-              <div class="label">Website</div>
-              <div class="value">One-page, modern &amp; stijlvol</div>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
     <section id="verhaal">
-      <div class="container split">
+      <div class="container">
         <div class="section-header">
           <span class="section-label">Ons verhaal</span>
-          <h2>Een korte introductie van ons samen</h2>
+          <h2>Een paar momenten richting 22 augustus 2026</h2>
           <p class="section-intro">
-            Hier komt straks jullie persoonlijke verhaal. Voor nu staat hieronder een nette placeholder die later
-            eenvoudig vervangen kan worden door een eigen tekst.
+            Deze opzet is bewust meer opgebouwd zoals het voorbeeld: met losse verhaalkaarten, ruimte voor beelden en
+            korte stukken tekst. De inhoud hieronder is nog als placeholder opgezet en kan later eenvoudig persoonlijk worden gemaakt.
           </p>
         </div>
-        <div class="card">
-          <p>
-            Bram en Lieke gaan trouwen.
-          </p>
-          <p>
-            Op deze plek kan later een persoonlijk verhaal komen over hoe jullie elkaar hebben leren kennen, wat jullie
-            typeert als stel en waarom jullie uitkijken naar deze bijzondere dag in Klooster Bethlehem.
-          </p>
-          <p>
-            Denk bijvoorbeeld aan een warme, korte tekst die goed past bij de rest van de uitnodiging en de sfeer van
-            de bruiloft.
-          </p>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <div class="story-image">Foto 1</div>
+            <span class="story-number">1</span>
+            <h3>Het begin</h3>
+            <p>Hier kan later een korte eerste herinnering komen over hoe Bram en Lieke elkaar leerden kennen.</p>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">Foto 2</div>
+            <span class="story-number">2</span>
+            <h3>Samen op weg</h3>
+            <p>Deze kaart is geschikt voor een tweede moment: een reis, een bijzondere periode of iets wat jullie typeert als stel.</p>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">Foto 3</div>
+            <span class="story-number">3</span>
+            <h3>Ons leven samen</h3>
+            <p>Hier kan een tekst komen over jullie leven samen, jullie gezin, thuis of alles wat deze fase bijzonder maakt.</p>
+          </article>
+
+          <article class="story-card">
+            <div class="story-image">Foto 4</div>
+            <span class="story-number">4</span>
+            <h3>Op naar de grote dag</h3>
+            <p>Deze laatste kaart kan straks mooi eindigen met de stap naar jullie bruiloft en de uitnodiging aan jullie gasten.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="dresscode">
-      <div class="container card">
-        <span class="section-label">Dresscode &amp; thema</span>
-        <h2>Summer Chic</h2>
-        <p class="section-intro">
-          We vieren onze dag graag in een stijlvolle, zomerse sfeer. Denk aan feestelijk, verzorgd en elegant, passend
-          bij een warme zomerbruiloft.
-        </p>
-        <span class="pill">Thema: Summer Chic</span>
+    <section id="grote-dag">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">De grote dag</span>
+          <h2>Locatie en planning</h2>
+        </div>
+
+        <div class="day-grid">
+          <article class="day-card">
+            <div class="day-location">Ceremonie</div>
+            <h3>Klooster Bethlehem</h3>
+            <p>Hier kan later het volledige adres komen, eventueel met een korte toelichting voor gasten.</p>
+            <a class="route-link" href="#">Route</a>
+          </article>
+
+          <article class="day-card">
+            <div class="day-location">Diner</div>
+            <h3>Klooster Bethlehem</h3>
+            <p>Als ceremonie en diner op dezelfde plek zijn, kan deze kaart ook worden gebruikt voor borrel of feest.</p>
+            <a class="route-link" href="#">Route</a>
+          </article>
+
+          <article class="day-card">
+            <div class="day-location">Feest</div>
+            <h3>Klooster Bethlehem</h3>
+            <p>Ook deze kaart kunnen we later aanpassen zodra de indeling van de dag definitief is.</p>
+            <a class="route-link" href="#">Route</a>
+          </article>
+        </div>
+
+        <div class="section-card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">14:00</div>
+              <div>
+                <h3>Ontvangst</h3>
+                <p>Placeholder voor het moment waarop gasten welkom zijn en de dag begint.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">15:00</div>
+              <div>
+                <h3>Ceremonie</h3>
+                <p>Hier kan later de omschrijving van de ceremonie komen, passend bij de setting van Klooster Bethlehem.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">17:00</div>
+              <div>
+                <h3>Borrel &amp; diner</h3>
+                <p>Ruimte voor een korte uitleg over het programma, het diner of andere onderdelen van de middag en avond.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">20:30</div>
+              <div>
+                <h3>Feest</h3>
+                <p>Een plek voor de afsluiting van de dag met muziek, borrel en dansvloer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="praktisch">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Praktische informatie</span>
-          <h2>Alles voor de dag op een rij</h2>
-          <p class="section-intro">
-            Hieronder staat ruimte voor de belangrijkste informatie voor jullie gasten. De basis staat al klaar en kan
-            later eenvoudig worden aangevuld met exacte details.
-          </p>
+          <span class="section-label">Praktische info</span>
+          <h2>Alles voor onze gasten op een rij</h2>
         </div>
 
-        <div class="details-grid">
-          <div class="detail-card">
-            <h3>Locatie</h3>
-            <p>
-              Klooster Bethlehem<br />
-              Hier kan later het volledige adres worden toegevoegd, eventueel met parkeerinformatie of route-uitleg.
-            </p>
-          </div>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Dresscode</h3>
+            <p>We vieren onze dag in een stijlvolle, zomerse sfeer.</p>
+            <span class="tag">Summer Chic</span>
+          </article>
 
-          <div class="detail-card">
-            <h3>Planning</h3>
-            <p>
-              Hier kan later de globale dagindeling komen, bijvoorbeeld ontvangst, ceremonie, diner en feest.
-            </p>
-          </div>
+          <article class="info-card">
+            <h3>Cadeaus</h3>
+            <p>Jullie aanwezigheid is het mooiste cadeau. Willen jullie ons toch iets geven, dan waarderen wij een bijdrage in geld enorm.</p>
+            <div class="gift-highlight">Cadeautip: een bijdrage in geld is van harte welkom.</div>
+          </article>
 
-          <div class="detail-card">
-            <h3>Bereikbaarheid</h3>
-            <p>
-              Voeg hier indien gewenst informatie toe over parkeren, taxi's, openbaar vervoer of overnachtingsopties.
-            </p>
-          </div>
+          <article class="info-card">
+            <h3>Overnachten &amp; parkeren</h3>
+            <p>Hier kan later informatie komen over parkeren, hotels in de buurt of ander vervoer voor gasten.</p>
+          </article>
 
-          <div class="detail-card">
+          <article class="info-card">
             <h3>Extra informatie</h3>
-            <p>
-              Deze plek is geschikt voor aanvullende details zoals dieetwensen, kinderen, praktische instructies of
-              andere bijzonderheden.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="cadeau">
-      <div class="container gift-box">
-        <span class="section-label">Cadeautip</span>
-        <h2>Jullie aanwezigheid is het mooiste cadeau</h2>
-        <p class="section-intro">
-          Willen jullie ons toch graag iets geven, dan zouden wij een bijdrage in geld enorm waarderen. Daarmee kunnen
-          we samen iets moois uitzoeken of sparen voor een bijzondere bestemming of herinnering.
-        </p>
-        <div class="gift-amount">
-          Cadeautip: een bijdrage in geld is van harte welkom.
+            <p>Deze kaart kan gebruikt worden voor dieetwensen, kinderen, tijden, praktische instructies of andere bijzonderheden.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <div class="container contact-box">
-        <span class="section-label">Contact ceremoniemeesters</span>
-        <h2>Vragen of iets afstemmen?</h2>
-        <p class="section-intro">
-          Voor vragen, verrassingen of praktische afstemming kunnen gasten contact opnemen met de ceremoniemeesters.
-          Vul hieronder later eenvoudig de juiste gegevens in.
-        </p>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Vragen?</span>
+          <h2>Neem contact op met onze ceremoniemeesters</h2>
+          <p class="section-intro">Voor vragen, verrassingen of praktische afstemming kunnen gasten rechtstreeks contact opnemen.</p>
+        </div>
 
-        <div class="contact-list">
-          <div class="contact-item">
-            <strong>Ceremoniemeester 1</strong>
-            <div>Naam volgt</div>
-            <div>Telefoonnummer volgt</div>
-            <div>E-mailadres volgt</div>
-          </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <div class="contact-label">Ceremoniemeester 1</div>
+            <h3>Naam volgt</h3>
+            <p>Telefoonnummer volgt</p>
+            <p>E-mailadres volgt</p>
+          </article>
 
-          <div class="contact-item">
-            <strong>Ceremoniemeester 2</strong>
-            <div>Naam volgt</div>
-            <div>Telefoonnummer volgt</div>
-            <div>E-mailadres volgt</div>
-          </div>
+          <article class="contact-card">
+            <div class="contact-label">Ceremoniemeester 2</div>
+            <h3>Naam volgt</h3>
+            <p>Telefoonnummer volgt</p>
+            <p>E-mailadres volgt</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-box">
+    <div class="container footer-card">
       <p><strong>Bram &amp; Lieke</strong> · 22 augustus 2026 · Klooster Bethlehem</p>
-      <p>Met liefde gemaakt als moderne one-page trouwwebsite.</p>
+      <p>Met liefde gemaakt voor onze speciale dag.</p>
     </div>
   </footer>
 
