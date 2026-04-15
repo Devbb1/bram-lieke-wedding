@@ -228,14 +228,52 @@
     }
 
     .hero-panel h3 {
-      margin: 0 0 12px;
-      font-size: 1.12rem;
+      margin: 0;
+      font-size: 1.16rem;
+    }
+
+    .panel-heading-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .panel-label {
+      margin-bottom: 8px;
+      color: var(--accent-dark);
+      font-size: 0.7rem;
+    }
+
+    .panel-badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #fff 0%, #f5ebdd 100%);
+      border: 1px solid rgba(182, 138, 87, 0.12);
+      color: var(--accent-dark);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .countdown-ring {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 2px solid rgba(182, 138, 87, 0.25);
+      box-shadow: inset 0 0 0 7px rgba(182, 138, 87, 0.08);
+      background: radial-gradient(circle, rgba(182, 138, 87, 0.22) 0%, rgba(182, 138, 87, 0.02) 70%);
+    }
+
+    .info-panel-premium,
+    .countdown-panel-premium {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(250,245,238,0.92) 100%);
     }
 
     .info-mini-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 14px;
     }
 
     .mini-card {
@@ -243,6 +281,27 @@
       border-radius: 18px;
       background: var(--surface-alt);
       border: 1px solid rgba(182, 138, 87, 0.08);
+    }
+
+    .mini-card-premium {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: linear-gradient(180deg, #fff 0%, #f8f1e8 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+    }
+
+    .mini-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid rgba(182, 138, 87, 0.12);
+      font-size: 1rem;
     }
 
     .mini-label {
@@ -263,7 +322,7 @@
     .countdown {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
+      gap: 12px;
       margin-top: 12px;
     }
 
@@ -271,8 +330,9 @@
       padding: 16px 10px;
       text-align: center;
       border-radius: 18px;
-      background: linear-gradient(180deg, #fff 0%, #f7f0e7 100%);
-      border: 1px solid rgba(182, 138, 87, 0.10);
+      background: linear-gradient(180deg, #ffffff 0%, #f4ece1 100%);
+      border: 1px solid rgba(182, 138, 87, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
     }
 
     .countdown-number {
@@ -332,7 +392,7 @@
       overflow: hidden;
       min-height: 100%;
       border-radius: 30px;
-      background: linear-gradient(180deg, rgba(34,25,18,0.06), rgba(34,25,18,0.35)), url('https://kloosterbethlehem.nl/wp-content/uploads/2024/07/0002-1140x1050.jpg') center/cover no-repeat;
+      background: linear-gradient(180deg, rgba(34,25,18,0.08), rgba(34,25,18,0.44)), url('images/kapel-diner.jpg') center/cover no-repeat;
       display: flex;
       align-items: end;
       padding: 28px;
@@ -347,9 +407,34 @@
       background: linear-gradient(180deg, rgba(0,0,0,0.02) 20%, rgba(0,0,0,0.52) 100%);
     }
 
+    .floating-emojis {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .float-emoji {
+      position: absolute;
+      font-size: 1.4rem;
+      opacity: 0.9;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.18));
+      animation: floaty 6s ease-in-out infinite;
+    }
+
+    .emoji-1 { top: 18px; right: 20px; animation-delay: 0s; }
+    .emoji-2 { top: 72px; right: 72px; animation-delay: 1.2s; }
+    .emoji-3 { bottom: 24px; right: 26px; animation-delay: 2.1s; }
+    .emoji-4 { top: 28px; left: 24px; animation-delay: 0.6s; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(3deg); }
+    }
+
     .story-highlight-inner {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       max-width: 420px;
     }
 
@@ -402,8 +487,6 @@
     .contact-card p,
     .footer-card p,
     .section-card p,
-    .story-highlight p,
-    .hero-panel p,
     .gallery-caption {
       color: var(--muted);
     }
@@ -595,6 +678,15 @@
         gap: 12px 14px;
       }
 
+      .panel-heading-row {
+        align-items: flex-start;
+      }
+
+      .panel-badge,
+      .countdown-ring {
+        display: none;
+      }
+
       .info-mini-grid,
       .countdown,
       .story-grid,
@@ -637,8 +729,10 @@
       .countdown,
       .story-grid,
       .info-mini-grid,
-      .gallery-side {
-        grid-template-columns: 1fr 1fr;
+      .gallery-side,
+      .info-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
       h1 {
@@ -673,7 +767,7 @@
             <span class="eyebrow">22 augustus 2026 · Klooster Bethlehem</span>
             <h1>Bram &amp; Lieke</h1>
             <p class="hero-subtitle">
-              Met veel liefde kijken wij uit naar een prachtige dag op deze bijzondere plek. We vinden het heel bijzonder om dit samen met jullie te mogen vieren.
+              Met veel plezier kijken wij uit naar een mooie dag op een bijzondere plek. We vinden het heel fijn om dit samen met jullie te kunnen vieren.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#dag">Bekijk de dag</a>
@@ -683,30 +777,54 @@
         </div>
 
         <div class="hero-side">
-          <aside class="hero-panel">
-            <h3>De belangrijkste informatie</h3>
+          <aside class="hero-panel info-panel-premium">
+            <div class="panel-heading-row">
+              <div>
+                <span class="section-label panel-label">Belangrijkste info</span>
+                <h3>In één oogopslag</h3>
+              </div>
+              <div class="panel-badge">22 aug 2026</div>
+            </div>
             <div class="info-mini-grid">
-              <div class="mini-card">
-                <div class="mini-label">Datum</div>
-                <div class="mini-value">22 augustus 2026</div>
+              <div class="mini-card mini-card-premium">
+                <div class="mini-icon">📅</div>
+                <div>
+                  <div class="mini-label">Datum</div>
+                  <div class="mini-value">22 augustus 2026</div>
+                </div>
               </div>
-              <div class="mini-card">
-                <div class="mini-label">Locatie</div>
-                <div class="mini-value">Klooster Bethlehem</div>
+              <div class="mini-card mini-card-premium">
+                <div class="mini-icon">📍</div>
+                <div>
+                  <div class="mini-label">Locatie</div>
+                  <div class="mini-value">Klooster Bethlehem</div>
+                </div>
               </div>
-              <div class="mini-card">
-                <div class="mini-label">Thema</div>
-                <div class="mini-value">Summer Chic</div>
+              <div class="mini-card mini-card-premium">
+                <div class="mini-icon">☀️</div>
+                <div>
+                  <div class="mini-label">Thema</div>
+                  <div class="mini-value">Summer Chic</div>
+                </div>
               </div>
-              <div class="mini-card">
-                <div class="mini-label">Parkeren</div>
-                <div class="mini-value">Voldoende plek aanwezig</div>
+              <div class="mini-card mini-card-premium">
+                <div class="mini-icon">🚗</div>
+                <div>
+                  <div class="mini-label">Parkeren</div>
+                  <div class="mini-value">Voldoende plek aanwezig</div>
+                </div>
               </div>
             </div>
           </aside>
 
-          <aside class="hero-panel">
-            <h3>Aftellen naar onze dag</h3>
+          <aside class="hero-panel countdown-panel-premium">
+            <div class="panel-heading-row">
+              <div>
+                <span class="section-label panel-label">Aftellen</span>
+                <h3>Nog even</h3>
+              </div>
+              <div class="countdown-ring"></div>
+            </div>
             <div class="countdown" aria-label="Aftellen naar de bruiloft">
               <div class="countdown-box">
                 <span class="countdown-number" id="days">--</span>
@@ -734,19 +852,25 @@
       <div class="container">
         <div class="section-header">
           <span class="section-label">Ons verhaal</span>
-          <h2>Van Heerlen naar dit bijzondere moment</h2>
+          <h2>Van Heerlen naar 22 augustus 2026</h2>
           <p class="section-intro">
-            Een verhaal van liefde, groei en samen steeds meer thuiskomen bij elkaar.
+            Tien jaar samen, veel meegemaakt en inmiddels een heel mooi gezin. Op 22 augustus vieren we dat graag met jullie.
           </p>
         </div>
 
         <div class="story-layout">
           <div class="story-highlight">
+            <div class="floating-emojis" aria-hidden="true">
+              <span class="float-emoji emoji-1">✨</span>
+              <span class="float-emoji emoji-2">🥂</span>
+              <span class="float-emoji emoji-3">💍</span>
+              <span class="float-emoji emoji-4">☀️</span>
+            </div>
             <div class="story-highlight-inner">
               <span class="eyebrow">Al 10 jaar samen onderweg</span>
               <h3>Ons avontuur begon in Heerlen</h3>
               <p>
-                Wat begon met een ontmoeting in Heerlen groeide uit tot een leven vol bijzondere herinneringen, gedeelde dromen en een prachtig gezin.
+                Wat begon met een ontmoeting in Heerlen groeide uit tot een leven met veel mooie momenten, een hoop herinneringen en een gezin waar we ontzettend dankbaar voor zijn.
               </p>
             </div>
           </div>
@@ -756,15 +880,15 @@
               <div class="story-icon">1</div>
               <h3>De eerste ontmoeting</h3>
               <p>
-                Ons avontuur samen begon in Heerlen, waar we elkaar tien jaar geleden ontmoetten. Vanaf dat moment ontstond er iets bijzonders dat steeds verder groeide.
+                Ons avontuur samen begon in Heerlen, waar we elkaar tien jaar geleden ontmoetten. Vanaf dat moment ging het eigenlijk vanzelf steeds meer samen.
               </p>
             </article>
 
             <article class="story-card">
               <div class="story-icon">2</div>
-              <h3>Veel mooie herinneringen</h3>
+              <h3>Samen verder</h3>
               <p>
-                In de jaren daarna beleefden we samen talloze mooie momenten: grote stappen, kleine geluksmomenten en alles wat het leven juist zo waardevol maakt.
+                In de jaren daarna beleefden we samen talloze mooie momenten: grote stappen, bijzondere fases en veel herinneringen die ons hebben gebracht waar we nu staan.
               </p>
             </article>
 
@@ -772,15 +896,15 @@
               <div class="story-icon">3</div>
               <h3>Ons gezin</h3>
               <p>
-                We zijn enorm dankbaar dat we inmiddels samen drie prachtige kinderen hebben. Zij maken ons leven rijker, voller en nog mooier dan we ooit hadden kunnen bedenken.
+                Inmiddels vormen we samen een gezin met drie prachtige kinderen. Dat maakt ons leven drukker, voller en vooral heel waardevol.
               </p>
             </article>
 
             <article class="story-card">
               <div class="story-icon">4</div>
-              <h3>Samen vieren</h3>
+              <h3>22 augustus 2026</h3>
               <p>
-                Op 22 augustus 2026 willen we onze liefde graag samen met jullie vieren. Dat jullie erbij zijn, maakt deze dag voor ons extra bijzonder.
+                Op deze dag willen we graag met jullie stilstaan bij wat achter ons ligt en vooral vooruitkijken naar alles wat nog komt.
               </p>
             </article>
           </div>
@@ -797,12 +921,12 @@
 
         <div class="day-layout">
           <article class="section-card venue-card">
-            <img class="venue-image" src="https://kloosterbethlehem.nl/wp-content/uploads/2024/07/0002-1140x1050.jpg" alt="Klooster Bethlehem" />
+            <img class="venue-image" src="images/klooster-terras.jpg" alt="Klooster Bethlehem terras" />
             <div class="venue-body">
               <div class="venue-kicker">Locatie</div>
               <h3>Klooster Bethlehem</h3>
               <p>
-                Een sfeervolle, karaktervolle locatie waar historie en warmte prachtig samenkomen. Precies de plek waar wij deze dag graag met jullie willen beleven.
+                Een karaktervolle locatie met een mooie buitenruimte en een sfeervolle setting voor zowel de ceremonie als het feest.
               </p>
               <div class="contact-actions">
                 <a class="button button-gold" href="https://maps.app.goo.gl/duNq6eQhdRnQFeNu6" target="_blank" rel="noopener noreferrer">Open in Maps</a>
@@ -811,33 +935,26 @@
           </article>
 
           <article class="timeline-card">
-            <h3>Globale planning</h3>
+            <h3>Planning</h3>
+            <div class="timeline-item">
+              <div class="time">13:30</div>
+              <div>
+                <h3>Daggasten · ontvangst</h3>
+                <p>Ontvangst voor de daggasten op de locatie.</p>
+              </div>
+            </div>
             <div class="timeline-item">
               <div class="time">14:00</div>
               <div>
-                <h3>Ontvangst</h3>
-                <p>We ontvangen jullie graag op de locatie voor een feestelijke start van de dag.</p>
+                <h3>Daggasten · ceremonie</h3>
+                <p>De ceremonie start om 14:00.</p>
               </div>
             </div>
             <div class="timeline-item">
-              <div class="time">15:00</div>
+              <div class="time">20:00</div>
               <div>
-                <h3>Ceremonie</h3>
-                <p>Een bijzonder moment waarop we elkaar het ja-woord geven in een warme en intieme setting.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="time">17:00</div>
-              <div>
-                <h3>Toost &amp; diner</h3>
-                <p>Tijd om samen te proosten, te genieten en mooie herinneringen te maken met familie en vrienden.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="time">20:30</div>
-              <div>
-                <h3>Feest</h3>
-                <p>We sluiten de dag af met muziek, gezelligheid en een goed feest om nog lang op terug te kijken.</p>
+                <h3>Avondgasten · feest</h3>
+                <p>Voor de avondgasten begint het feest om 20:00.</p>
               </div>
             </div>
           </article>
@@ -879,7 +996,7 @@
           <article class="info-card">
             <h3>Bereikbaarheid</h3>
             <p>
-              Klooster Bethlehem is eenvoudig te vinden. Via de Maps-link op deze pagina navigeer je direct naar de juiste locatie.
+              Via de Maps-link op deze pagina navigeer je direct naar de juiste locatie.
             </p>
           </article>
         </div>
@@ -892,7 +1009,7 @@
           <span class="section-label">Sfeer</span>
           <h2>Een indruk van de locatie en de dag</h2>
           <p class="section-intro">
-            Een paar beelden die alvast iets laten zien van de sfeer, het karakter en de warmte van deze bijzondere plek.
+            Een paar beelden die alvast iets laten zien van de sfeer en setting van Klooster Bethlehem.
           </p>
         </div>
 
