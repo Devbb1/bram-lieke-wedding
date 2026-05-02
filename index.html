@@ -10,6 +10,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="images/klooster-terras.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root {
       --bg: #f8f4ee;
@@ -520,10 +521,23 @@
       grid-template-columns: 1fr 1fr;
     }
 
+    .gallery-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .contact-label {
@@ -538,17 +552,6 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
-    }
-
-    .phone-reveal {
-      margin-top: 14px;
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: #f7f1e7;
-      color: var(--accent-dark);
-      font-weight: 800;
-      border: 1px solid rgba(182, 138, 87, 0.12);
     }
 
     footer {
@@ -665,6 +668,7 @@
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
@@ -704,6 +708,7 @@
               </div>
               <div class="panel-badge">22 aug 2026</div>
             </div>
+
             <div class="scan-grid">
               <div class="scan-card">
                 <div class="scan-icon">📅</div>
@@ -712,6 +717,7 @@
                   <div class="scan-value">22 augustus 2026</div>
                 </div>
               </div>
+
               <div class="scan-card">
                 <div class="scan-icon">📍</div>
                 <div>
@@ -719,6 +725,7 @@
                   <div class="scan-value">Klooster Bethlehem</div>
                 </div>
               </div>
+
               <div class="scan-card">
                 <div class="scan-icon">☀️</div>
                 <div>
@@ -726,6 +733,7 @@
                   <div class="scan-value">Summer Chic</div>
                 </div>
               </div>
+
               <div class="scan-card">
                 <div class="scan-icon">🚗</div>
                 <div>
@@ -744,6 +752,7 @@
               </div>
               <div class="countdown-ring"></div>
             </div>
+
             <div class="countdown" aria-label="Aftellen naar de bruiloft">
               <div class="countdown-box">
                 <span class="countdown-number" id="days">--</span>
@@ -802,6 +811,7 @@
               <h3>Samen verder</h3>
               <p>
                 In de jaren daarna beleefden we samen veel mooie momenten: samenwonen in Utrecht, mooie vriendschappen opbouwen en uiteindelijk de verhuizing naar Veghel met onze jongens.
+              </p>
             </article>
 
             <article class="story-card">
@@ -851,16 +861,20 @@
           <article class="info-card">
             <h3>Parkeren</h3>
             <p>
-              Er is voldoende parkeergelegenheid bij de locatie. Komen jullie uit dezelfde richting? Dan is samen rijden wel zo gezellig (en handig 😉).
+              Er is voldoende parkeergelegenheid bij de locatie. Komen jullie uit dezelfde richting? Dan is samen rijden wel zo gezellig en handig.
             </p>
           </article>
 
           <article class="info-card">
             <h3>Aangeraden slaaplocatie</h3>
             <p>
-              Vanuit de trouwlocatie zijn de volgende slaaplocaties aangeraden:
-              Hotel de Naaldhof Oss (https://www.denaaldhof.nl/). Je kan direct met ze contact opnemen voor prijsafspraken die gemaakt zijn met Klooster Bethlehem.
+              Voor gasten die graag in de buurt blijven slapen, raden we Hotel de Naaldhof in Oss aan. Zij kennen Klooster Bethlehem en er zijn prijsafspraken mogelijk.
             </p>
+            <div class="contact-actions">
+              <a class="button button-soft" href="https://www.denaaldhof.nl/" target="_blank" rel="noopener noreferrer">
+                Bekijk Hotel de Naaldhof
+              </a>
+            </div>
           </article>
         </div>
       </div>
@@ -882,17 +896,30 @@
               <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/06/20240613_Hutten_KloosterBethlehem_LawPepper-0185-Original-2.jpeg" alt="Luchtfoto van Klooster Bethlehem" loading="lazy" decoding="async" />
             </article>
           </div>
+
           <div class="gallery-side">
             <article class="gallery-card">
               <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/03/DSCF6965-Original-760x700.jpeg" alt="Sfeervolle tafelstyling" loading="lazy" decoding="async" />
             </article>
+
             <article class="gallery-card">
               <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/03/8-760x700.jpg" alt="Ceremonie in de kapel" loading="lazy" decoding="async" />
             </article>
+
             <article class="gallery-card">
               <img src="https://kloosterbethlehem.nl/wp-content/uploads/2025/04/DSCF7186-Original-760x700.jpeg" alt="Sfeervolle buitenlocatie bij het klooster" loading="lazy" decoding="async" />
             </article>
+
+            <article class="gallery-card">
+              <img src="images/Feest%20Klooster%20Bethlehem%20kapel.jpg" alt="Feestavond in de kapel van Klooster Bethlehem" loading="lazy" decoding="async" />
+            </article>
           </div>
+        </div>
+
+        <div class="gallery-actions">
+          <a class="button button-soft" href="https://www.theperfectwedding.nl/bedrijven/5238/klooster-bethlehem/media" target="_blank" rel="noopener noreferrer">
+            Bekijk meer sfeerbeelden
+          </a>
         </div>
       </div>
     </section>
@@ -903,29 +930,30 @@
           <span class="section-label">Contact</span>
           <h2>Vragen of iets afstemmen?</h2>
           <p class="section-intro">
-            Voor vragen, verrassingen of praktische afstemming kun je contact opnemen met onze ceremoniemeester.
+            Voor vragen, verrassingen of praktische afstemming kun je contact opnemen met onze ceremoniemeesters.
           </p>
         </div>
 
         <div class="contact-grid">
           <article class="contact-card">
-            <span class="contact-label">Vragen op de dag zelf?</span>
-            <h3>Tom & Sanne · ceremoniemeesters</h3>
-            <p>
-              Neem gerust contact op met Tom en Sanne voor vragen rondom de dag, verrassingen of praktische afstemming.
-            </p>
-            <div class="contact-actions">
-              <button class="button button-soft" type="button" id="phoneToggle">Toon telefoonnummer</button>
+            <div>
+              <span class="contact-label">Vragen op de dag zelf?</span>
+              <h3>Tom &amp; Sanne · ceremoniemeesters</h3>
+              <p>
+                Neem gerust contact op met Tom en Sanne voor vragen rondom de dag, verrassingen of praktische afstemming.
+              </p>
             </div>
-            <div class="phone-reveal" id="phoneReveal" hidden>Telefoonnummer volgt</div>
           </article>
 
           <article class="contact-card">
-            <span class="contact-label">Locatie</span>
-            <h3>Klooster Bethlehem</h3>
-            <p>
-              Voor de route naar de locatie kun je direct gebruikmaken van de Maps-link hieronder.
-            </p>
+            <div>
+              <span class="contact-label">Locatie</span>
+              <h3>Klooster Bethlehem</h3>
+              <p>
+                Voor de route naar de locatie kun je direct gebruikmaken van de Maps-link hieronder.
+              </p>
+            </div>
+
             <div class="contact-actions">
               <a class="button button-gold" href="https://maps.app.goo.gl/duNq6eQhdRnQFeNu6" target="_blank" rel="noopener noreferrer">Open route</a>
             </div>
@@ -949,8 +977,6 @@
       const hoursEl = document.getElementById('hours');
       const minutesEl = document.getElementById('minutes');
       const secondsEl = document.getElementById('seconds');
-      const phoneToggle = document.getElementById('phoneToggle');
-      const phoneReveal = document.getElementById('phoneReveal');
 
       function pad(value) {
         return String(value).padStart(2, '0');
@@ -978,19 +1004,6 @@
         hoursEl.textContent = pad(hours);
         minutesEl.textContent = pad(minutes);
         secondsEl.textContent = pad(seconds);
-      }
-
-      if (phoneToggle && phoneReveal) {
-        phoneToggle.addEventListener('click', function () {
-          const isHidden = phoneReveal.hasAttribute('hidden');
-          if (isHidden) {
-            phoneReveal.removeAttribute('hidden');
-            phoneToggle.textContent = 'Verberg telefoonnummer';
-          } else {
-            phoneReveal.setAttribute('hidden', 'hidden');
-            phoneToggle.textContent = 'Toon telefoonnummer';
-          }
-        });
       }
 
       updateCountdown();
