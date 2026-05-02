@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Bram & Lieke | 22 augustus 2026</title>
   <meta name="description" content="Bram en Lieke trouwen op 22 augustus 2026 in Klooster Bethlehem. Hier vind je alle praktische informatie voor onze bruiloft." />
+
   <meta property="og:title" content="Bram & Lieke | 22 augustus 2026" />
   <meta property="og:description" content="Alle praktische informatie voor onze bruiloft op 22 augustus 2026 in Klooster Bethlehem." />
   <meta property="og:type" content="website" />
@@ -25,11 +27,11 @@
       --accent-soft: #efe1cf;
       --shadow: 0 18px 50px rgba(44, 37, 31, 0.08);
       --radius-xl: 30px;
-      --radius-lg: 22px;
       --max: 1180px;
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -42,8 +44,15 @@
       line-height: 1.65;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; width: 100%; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
 
     .container {
       width: min(var(--max), calc(100% - 28px));
@@ -93,7 +102,6 @@
       color: var(--text);
     }
 
-    .card,
     .hero-panel,
     .story-card,
     .info-card,
@@ -127,7 +135,7 @@
       border-radius: 34px;
       background:
         linear-gradient(180deg, rgba(35,27,20,0.12), rgba(35,27,20,0.45)),
-        url('images/klooster-terras.jpg') center/cover no-repeat;
+        url("images/klooster-terras.jpg") center/cover no-repeat;
       display: flex;
       align-items: end;
       padding: 34px;
@@ -169,6 +177,20 @@
       line-height: 0.95;
       letter-spacing: -0.05em;
     }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.14rem;
+    }
+
+    p { margin: 0; }
 
     .hero-subtitle {
       margin: 16px 0 0;
@@ -365,13 +387,6 @@
       margin-bottom: 12px;
     }
 
-    h2 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      line-height: 1.06;
-      letter-spacing: -0.04em;
-    }
-
     .section-intro {
       margin: 14px auto 0;
       max-width: 760px;
@@ -390,7 +405,9 @@
       position: relative;
       overflow: hidden;
       min-height: 100%;
-      background: linear-gradient(180deg, rgba(34,25,18,0.08), rgba(34,25,18,0.44)), url('images/kapel-diner.jpg') center/cover no-repeat;
+      background:
+        linear-gradient(180deg, rgba(34,25,18,0.08), rgba(34,25,18,0.44)),
+        url("images/kapel-diner.jpg") center/cover no-repeat;
       display: flex;
       align-items: end;
       padding: 28px;
@@ -444,18 +461,10 @@
       margin-bottom: 14px;
     }
 
-    h3 {
-      margin: 0 0 10px;
-      font-size: 1.14rem;
-    }
-
-    p { margin: 0; }
-
     .story-card p,
     .info-card p,
     .contact-card p,
-    .footer-card p,
-    .gallery-caption {
+    .footer-card p {
       color: var(--muted);
     }
 
@@ -481,6 +490,24 @@
       font-size: 0.94rem;
     }
 
+    .gift-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gift-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(182,138,87,0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .gift-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .gift-highlight {
       margin-top: 16px;
       padding: 16px 18px;
@@ -489,6 +516,23 @@
       border: 1px solid rgba(182, 138, 87, 0.12);
       color: var(--accent-dark);
       font-weight: 800;
+    }
+
+    .gift-icon {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gift-icon svg {
+      opacity: 0.9;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .gift-card:hover svg {
+      transform: translateY(-2px) scale(1.05);
+      opacity: 1;
     }
 
     .gallery-grid {
@@ -519,12 +563,6 @@
 
     .gallery-side {
       grid-template-columns: 1fr 1fr;
-    }
-
-    .gallery-actions {
-      display: flex;
-      justify-content: center;
-      margin-top: 18px;
     }
 
     .contact-grid {
@@ -641,11 +679,14 @@
         border-radius: 24px;
       }
 
-      .scan-grid,
       .story-grid,
-      .gallery-side,
       .info-grid,
-      .contact-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scan-grid,
+      .gallery-side,
       .countdown {
         grid-template-columns: 1fr 1fr;
       }
@@ -673,6 +714,7 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#top">Bram &amp; Lieke</a>
+
       <nav class="nav" aria-label="Hoofdmenu">
         <a href="#verhaal">Ons verhaal</a>
         <a href="#praktisch">Praktische info</a>
@@ -692,6 +734,7 @@
             <p class="hero-subtitle">
               Vier onze dag met ons op een bijzondere locatie. We kijken ernaar uit om er samen met jullie een mooie en ontspannen dag van te maken.
             </p>
+
             <div class="hero-actions">
               <a class="button button-primary" href="#praktisch">Bekijk praktische info</a>
               <a class="button button-secondary" href="#contact">Contact ceremoniemeester</a>
@@ -711,7 +754,7 @@
 
             <div class="scan-grid">
               <div class="scan-card">
-                <div class="scan-icon">📅</div>
+                <div class="scan-icon" aria-hidden="true">📅</div>
                 <div>
                   <div class="scan-label">Datum</div>
                   <div class="scan-value">22 augustus 2026</div>
@@ -719,7 +762,7 @@
               </div>
 
               <div class="scan-card">
-                <div class="scan-icon">📍</div>
+                <div class="scan-icon" aria-hidden="true">📍</div>
                 <div>
                   <div class="scan-label">Locatie</div>
                   <div class="scan-value">Klooster Bethlehem</div>
@@ -727,7 +770,7 @@
               </div>
 
               <div class="scan-card">
-                <div class="scan-icon">☀️</div>
+                <div class="scan-icon" aria-hidden="true">☀️</div>
                 <div>
                   <div class="scan-label">Dresscode</div>
                   <div class="scan-value">Summer Chic</div>
@@ -735,7 +778,7 @@
               </div>
 
               <div class="scan-card">
-                <div class="scan-icon">🚗</div>
+                <div class="scan-icon" aria-hidden="true">🚗</div>
                 <div>
                   <div class="scan-label">Parkeren</div>
                   <div class="scan-value">Voldoende plek aanwezig</div>
@@ -750,7 +793,7 @@
                 <span class="panel-label">Aftellen</span>
                 <h3>Nog even en dan is het zover</h3>
               </div>
-              <div class="countdown-ring"></div>
+              <div class="countdown-ring" aria-hidden="true"></div>
             </div>
 
             <div class="countdown" aria-label="Aftellen naar de bruiloft">
@@ -789,7 +832,8 @@
               <span class="eyebrow">Al ruim 8 jaar samen onderweg</span>
               <h3>Ons avontuur begon in het zuiden</h3>
               <p>
-                10 jaar geleden leerden we elkaar kennen in Heerlen. Inmiddels zijn we een hoop mooie momenten verder en vormen we samen een gezin van vijf. 
+                Tien jaar geleden leerden we elkaar kennen in Heerlen. Inmiddels zijn we een hoop mooie momenten verder en vormen we samen een gezin van vijf.
+              </p>
             </div>
           </div>
 
@@ -806,7 +850,7 @@
               <div class="story-icon">2</div>
               <h3>Samen verder</h3>
               <p>
-                In de jaren daarna beleefden we samen veel mooie momenten: samenwonen in Utrecht, fijne vakanties, opbouwen van mooie vriendschappen en de verhuizing naar Veghel.
+                In de jaren daarna beleefden we samen veel mooie momenten: samenwonen in Utrecht, fijne vakanties, het opbouwen van mooie vriendschappen en de verhuizing naar Veghel.
               </p>
             </article>
 
@@ -846,12 +890,18 @@
             <span class="tag">Summer Chic</span>
           </article>
 
-          <article class="info-card">
+          <article class="info-card gift-card">
             <h3>Cadeautip</h3>
             <p>
-              Jullie aanwezigheid is voor ons het mooiste cadeau. Maak het jezelf dus vooral niet te moeilijk, met een envelopje zijn we al blij.
+              Jullie aanwezigheid is voor ons het mooiste cadeau. Maak het jezelf dus vooral niet te moeilijk; met een envelopje zijn we al blij.
             </p>
-            <div class="gift-highlight">Een bijdrage in geld.</div>
+
+            <div class="gift-highlight gift-icon" title="Een bijdrage in geld is welkom">
+              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#8d6637" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="M3 7l9 6 9-6"></path>
+              </svg>
+            </div>
           </article>
 
           <article class="info-card">
@@ -864,14 +914,15 @@
 
           <article class="info-card">
             <h3>Aangeraden slaaplocatie</h3>
-              <p>
-                Voor gasten die graag in de buurt blijven slapen, raadt Klooster Bethlehem Hotel de Naaldhof in Oss aan. Hier zijn prijsafspraken gemaakt. Je kunt hiervoor contact opnemen met onze ceriemoniemeesters.
-              </p>
-              <div class="contact-actions">
-                <a class="button button-soft" href="https://www.denaaldhof.nl/" target="_blank" rel="noopener noreferrer">
+            <p>
+              Voor gasten die graag in de buurt blijven slapen, raadt Klooster Bethlehem Hotel de Naaldhof in Oss aan. Er zijn prijsafspraken mogelijk; neem hiervoor contact op met onze ceremoniemeesters.
+            </p>
+
+            <div class="contact-actions">
+              <a class="button button-soft" href="https://www.denaaldhof.nl/" target="_blank" rel="noopener noreferrer">
                 Bekijk Hotel de Naaldhof
-                </a>
-              </div>
+              </a>
+            </div>
           </article>
         </div>
       </div>
@@ -912,7 +963,6 @@
             </article>
           </div>
         </div>
-       </div>
       </div>
     </section>
 
@@ -947,7 +997,9 @@
             </div>
 
             <div class="contact-actions">
-              <a class="button button-gold" href="https://maps.app.goo.gl/duNq6eQhdRnQFeNu6" target="_blank" rel="noopener noreferrer">Open route</a>
+              <a class="button button-gold" href="https://maps.app.goo.gl/duNq6eQhdRnQFeNu6" target="_blank" rel="noopener noreferrer">
+                Open route
+              </a>
             </div>
           </article>
         </div>
@@ -964,14 +1016,14 @@
 
   <script>
     (function () {
-      const targetDate = new Date('2026-08-22T14:30:00');
-      const daysEl = document.getElementById('days');
-      const hoursEl = document.getElementById('hours');
-      const minutesEl = document.getElementById('minutes');
-      const secondsEl = document.getElementById('seconds');
+      const targetDate = new Date("2026-08-22T14:30:00+02:00");
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
 
       function pad(value) {
-        return String(value).padStart(2, '0');
+        return String(value).padStart(2, "0");
       }
 
       function updateCountdown() {
@@ -979,10 +1031,10 @@
         const diff = targetDate - now;
 
         if (diff <= 0) {
-          daysEl.textContent = '00';
-          hoursEl.textContent = '00';
-          minutesEl.textContent = '00';
-          secondsEl.textContent = '00';
+          daysEl.textContent = "00";
+          hoursEl.textContent = "00";
+          minutesEl.textContent = "00";
+          secondsEl.textContent = "00";
           return;
         }
 
