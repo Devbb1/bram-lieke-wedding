@@ -31,7 +31,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -44,15 +43,8 @@
       line-height: 1.65;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
 
     .container {
       width: min(var(--max), calc(100% - 28px));
@@ -480,7 +472,9 @@
     }
 
     .tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       margin-top: 16px;
       padding: 10px 16px;
       border-radius: 999px;
@@ -488,51 +482,12 @@
       color: var(--accent-dark);
       font-weight: 800;
       font-size: 0.94rem;
+      line-height: 1;
     }
 
-    .gift-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gift-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(182,138,87,0.12), transparent 60%);
-      pointer-events: none;
-    }
-
-    .gift-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .gift-highlight {
-      margin-top: 16px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, #fff 0%, #f6efe5 100%);
-      border: 1px solid rgba(182, 138, 87, 0.12);
-      color: var(--accent-dark);
-      font-weight: 800;
-    }
-
-    .gift-icon {
-      margin-top: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .gift-icon svg {
+    .tag svg {
+      flex: 0 0 auto;
       opacity: 0.9;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .gift-card:hover svg {
-      transform: translateY(-2px) scale(1.05);
-      opacity: 1;
     }
 
     .gallery-grid {
@@ -890,18 +845,19 @@
             <span class="tag">Summer Chic</span>
           </article>
 
-          <article class="info-card gift-card">
+          <article class="info-card">
             <h3>Cadeautip</h3>
             <p>
               Jullie aanwezigheid is voor ons het mooiste cadeau. Maak het jezelf dus vooral niet te moeilijk; met een envelopje zijn we al blij.
             </p>
 
-            <div class="gift-highlight gift-icon" title="Een bijdrage in geld is welkom">
-              <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#8d6637" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <span class="tag" title="Een envelopje is welkom">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8d6637" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="2"></rect>
                 <path d="M3 7l9 6 9-6"></path>
               </svg>
-            </div>
+              Envelopje
+            </span>
           </article>
 
           <article class="info-card">
@@ -1016,7 +972,7 @@
 
   <script>
     (function () {
-      const targetDate = new Date("2026-08-22T14:30:00+02:00");
+      const targetDate = new Date("2026-08-22T14:00:00+02:00");
       const daysEl = document.getElementById("days");
       const hoursEl = document.getElementById("hours");
       const minutesEl = document.getElementById("minutes");
